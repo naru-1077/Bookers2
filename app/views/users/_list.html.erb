@@ -1,0 +1,26 @@
+<div class= "row">
+<h2>User info</h2>
+  <table class="table">
+    <div>
+     <tr><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: 'no_image.jpg', size:"100x100" %></tr>
+    </div>
+	  <tbody>
+	  <tr>
+	    <th>Name</th>
+	    <th><%= user.name %></th>
+	  </tr>
+  	  <tr>
+	    <th>introduction</th>
+	    <th><%= user.introduction %></th>
+	  </tr>
+	  </tbody>
+	</table>
+  </div>
+	  <div class="mx-auto">
+	  	<div class="low">
+	    <%= link_to edit_user_path(user), method: :get do %>
+	    <i class="fas fa-user-cog btn btn-outline-secondary btn-block" >
+        </i>
+	    <% end %>
+	    </div>
+      </div>

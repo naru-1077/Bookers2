@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'users/list', user: @user %>
+      <%= render 'books/book', book: @newbook %>
+    </div>
+
+     <div class="col-md-9">
+     <h2>Book detail</h2>
+
+       <table class="table">
+         <tbody>
+           <tr>
+             <td><%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback:'no_image.jpg', size:'40x40' %></td>
+             <td><%= link_to @user.name, user_path(@user) %></td>
+             <td><%= @book.title %></td>
+             <td><%= @book.body %></td>
+               <% if @user == current_user %>
+		         <td><%= link_to 'Edit', edit_book_path(@book), class:"btn btn-success" %></td>
+				 <td><%= link_to "Destroy", book_path(@book), class:"btn btn-danger", method: :delete, "data-confirm" => "Are you sure?" %></td>
+			   <% end %>
+           </tr>
+         </tbody>
+       </table>
+  </div>
+</div>
